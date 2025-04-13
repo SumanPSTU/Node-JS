@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/SumanPSTU/Node-JS#readme",
   "dependencies": {
-    "mysql": "^2.18.1"
+    "mysql2": "^3.14.0"
   }
 }

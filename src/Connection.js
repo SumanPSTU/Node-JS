@@ -1,14 +1,14 @@
-var http = require('http');
-var mysql = require('mysql');
+// Connection.js
+const mysql = require('mysql2/promise');
 
+async function createConnection() {
+    const connection = await mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: 'root@pass',
+        database: 'school'
+    });
+    return connection;
+}
 
-var con = mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'root@pass'
-});
-
-con.connect(function (err){
-   if (err) throw err;
-   console.log('connection success');
-});
+module.exports = createConnection;
