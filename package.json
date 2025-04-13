@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/SumanPSTU/Node-JS/issues"
   },
-  "homepage": "https://github.com/SumanPSTU/Node-JS#readme"
+  "homepage": "https://github.com/SumanPSTU/Node-JS#readme",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
 }
