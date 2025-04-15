@@ -1,22 +1,13 @@
-// createTable.js
-const createConnection = require('./Connection');
-
-async function createTable() {
-    try {
-        const connection = await createConnection();
-        const query = `
-            CREATE TABLE IF NOT EXISTS student (
-                id INT AUTO_INCREMENT PRIMARY KEY,
-                name VARCHAR(50) NOT NULL,
-                faculty VARCHAR(50)
-            )
-        `;
-        await connection.execute(query);
-        console.log('Table created');
-        await connection.end(); // good practice to close the connection
-    } catch (err) {
-        console.error('Error creating table:', err);
-    }
-}
-
-createTable();
+var con = require('./Connection');
+con.connect(function (err){
+    if (err) throw err;
+    console.log('connected')
+})
+// con.query('insert into student values (92,"hero","cse")',function (err){
+//     if (err) throw err;
+//     console.log('inserted')
+// })
+con.query('select * from student  order by id desc ',function (err,result){
+    if (err) throw err;
+    console.log(result);
+})
