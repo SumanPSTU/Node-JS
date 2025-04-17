@@ -1,8 +1,26 @@
-import {mongodb} from 'mongodb';
+import { MongoClient } from 'mongodb';
 
-const mongoClient = mongodb.MongoClient;
-var url = "mongodb://localhost:27017/school";
-mongoClient.connect(url,function (err){
-    if (err) throw err;
-    console.log('connected');
-})
+// Connection string for local MongoDB
+const uri = "mongodb://127.0.0.1:27017";
+
+const client = new MongoClient(uri);
+async function connectoDatabase(){
+    try {
+        client.connect();
+        console.log('connected')
+
+        const db = client.db('school');
+        const collection = db.collection('student');
+        const document={
+            name:'sumon',
+            id:2202014,
+            faculty:'cse'
+        };
+        collection.insertOne(document);
+        console.log('data inserted')
+
+    }catch (err){
+        throw err;
+    }
+}
+connectoDatabase();
