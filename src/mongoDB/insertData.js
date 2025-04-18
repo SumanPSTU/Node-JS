@@ -14,5 +14,6 @@ async function insertData(){
         console.error('error happened')
         throw err
     }
+
 }
 insertData();
